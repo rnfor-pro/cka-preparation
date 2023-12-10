@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  selector:
+    matchLabels:
+      app: myapp  
+  replicas: 3       
+  template:
+    metadata:            
+      name: myapp-pod         
+      labels:
+        app: myapp
+    spec:
+      containers: 
+      -  name: nginx-container
+         image: nginx
+         ports:
+         - containerPort: 80   
+
+
+
+# The labels that are set on the pod template and the one set on the selector really matters. 
+# That's what ties them together, they must be thesame.
+
+

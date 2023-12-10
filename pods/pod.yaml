@@ -1,0 +1,13 @@
+apiVersion: v1       # version of the k8s api used to create the object (make sure to used the right api object)
+kind: Pod            # refers to the type of object to create (pod in this case)
+metadata:            # data about the object like  name, label etc (in a dictionary form)
+  name: mypod        # 
+  labels:
+    app: myapp-pod
+    tier: front-end
+spec:
+  containers:         # list so multiple containers can be added.
+  - name: mypod-container
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
